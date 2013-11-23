@@ -1,6 +1,10 @@
 # web folder
 /web
 /vhosts
+build
+install
+/build-assets/install
+
 .*~
 *.*~
 
