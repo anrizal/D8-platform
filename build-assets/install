@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Run drush site install with profile
+PROFILE_NAME=""
+SITE_MAIL=""
+SITE_NAME=""
+ACCOUNT_NAME=""
+ACCOUNT_PASSWORD=""
+DB_SETTINGS="mysql://root:root@localhost/db"
+
+if pushd web; then
+echo "==> Installing..."
+  drush site-install ${PROFILE_NAME} --account-name=${ACCOUNT_NAME} --account-pass=${ACCOUNT_PASSWORD} --site-mail=${SITE_MAIL} --site-name=${SITE_NAME} --db-url=${DB_SETTINGS} -v -y
+  popd
+fi
+

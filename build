@@ -1,0 +1,41 @@
+#!/bin/bash
+# This is a simple version of the fabric file provided that can be used to
+# build the system.
+
+# Configuration.
+PROFILE_NAME=""
+PROFILE_ROOT="web/profiles/${PROFILE_NAME}"
+REPOSITORY_ROOT_DIR=$(pwd)
+GITHUB_ACCOUNT=
+
+#Remove web directory before drush make
+if [ -d "web" ]; then
+  echo "chmod +w web/sites/default"
+  chmod +w -R web/sites/default
+  echo "Remove web directory before drush make"
+  rm -rf web
+fi
+
+# Make Drupal core.
+echo "==> Make Drupal core..."
+drush make --working-copy platform.make web
+
+# gitclone profile from github, adjust this
+# https clone
+git clone -b dev https://github.com/${GITHUB_ACCOUNT}/${PROFILE_NAME}-profile.git web/profiles/${PROFILE_NAME}
+# ssh clone
+#git clone -b dev git@github.com:${GITHUB_ACCOUNT}/${PROFILE_NAME}-profile.git web/profiles/${PROFILE_NAME}
+
+# Get back to root directory.
+cd ${REPOSITORY_ROOT_DIR}
+
+echo "==> Build done!"
+
+# Loop through and run scripts sent in as arguments.
+for i in $*
+  do
+  if [ build-assets/$i ]; then
+    echo "==> Run script: ${i}..."
+      ./build-assets/$i
+    fi
+done
