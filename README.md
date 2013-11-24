@@ -1,8 +1,8 @@
-Iderakyat.org
+Drupal 8 Based Platform
 ==============
 ## Install drupal 8 
 
-clone platform.
+clone platform into your document root.
 
 adjust configuration in build and build-assets/install
 

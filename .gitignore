@@ -1,8 +1,8 @@
 # web folder
 /web
 /vhosts
-build.*
-install.*
+build
+install
 build-assets
 
 .*~
