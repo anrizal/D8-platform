@@ -2,7 +2,6 @@
 /web
 /vhosts
 build
-install
 build-assets
 
 .*~
