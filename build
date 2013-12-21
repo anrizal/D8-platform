@@ -2,11 +2,12 @@
 # This is a simple version of the fabric file provided that can be used to
 # build the system.
 
+
 # Configuration.
-PROFILE_NAME=""
+PROFILE_NAME="Iderakyat"
 PROFILE_ROOT="web/profiles/${PROFILE_NAME}"
 REPOSITORY_ROOT_DIR=$(pwd)
-GITHUB_ACCOUNT=
+GITHUB_ACCOUNT=anrizal
 
 #Remove web directory before drush make
 if [ -d "web" ]; then
@@ -25,6 +26,11 @@ drush make --working-copy platform.make web
 git clone -b dev https://github.com/${GITHUB_ACCOUNT}/${PROFILE_NAME}-profile.git web/profiles/${PROFILE_NAME}
 # ssh clone
 #git clone -b dev git@github.com:${GITHUB_ACCOUNT}/${PROFILE_NAME}-profile.git web/profiles/${PROFILE_NAME}
+
+# Make profile.
+echo "==> Make profile..."
+cd ${PROFILE_ROOT}
+drush -y make --no-core ${PROFILE_NAME}.make --contrib-destination=.
 
 # Get back to root directory.
 cd ${REPOSITORY_ROOT_DIR}
