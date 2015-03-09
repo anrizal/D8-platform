@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Run drush site install with profile
-PROFILE_NAME=""
-SITE_MAIL=""
-SITE_NAME=""
-ACCOUNT_NAME=""
-ACCOUNT_PASSWORD=""
-DB_SETTINGS="mysql://root:root@localhost/db"
+PROFILE_NAME="d8test"
+SITE_MAIL="d8test@drupaltest.org"
+SITE_NAME="Drupal Test Profile"
+ACCOUNT_NAME="admin"
+ACCOUNT_PASSWORD="admin"
+DB_SETTINGS="mysql://root:password@localhost/db8"
 
 if pushd web; then
 echo "==> Installing..."

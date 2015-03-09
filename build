@@ -4,7 +4,7 @@
 
 
 # Configuration.
-PROFILE_NAME="Iderakyat"
+PROFILE_NAME="d8test"
 PROFILE_ROOT="web/profiles/${PROFILE_NAME}"
 REPOSITORY_ROOT_DIR=$(pwd)
 GITHUB_ACCOUNT=anrizal
@@ -23,9 +23,9 @@ drush make --working-copy platform.make web
 
 # gitclone profile from github, adjust this
 # https clone
-git clone -b dev https://github.com/${GITHUB_ACCOUNT}/${PROFILE_NAME}-profile.git web/profiles/${PROFILE_NAME}
+git clone -b master https://github.com/${GITHUB_ACCOUNT}/${PROFILE_NAME}-profile.git web/profiles/${PROFILE_NAME}
 # ssh clone
-#git clone -b dev git@github.com:${GITHUB_ACCOUNT}/${PROFILE_NAME}-profile.git web/profiles/${PROFILE_NAME}
+#git clone -b master git@github.com:${GITHUB_ACCOUNT}/${PROFILE_NAME}-profile.git web/profiles/${PROFILE_NAME}
 
 # Make profile.
 echo "==> Make profile..."
